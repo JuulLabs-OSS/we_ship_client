@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<WE_SHIP_BASE_URL>/track"
+    body:
+      encoding: UTF-8
+      string: '{"customer_code":["<WE_SHIP_CUSTOMER_CODE>"],"page_num":0,"num_records":500}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - JWT invalid-jwt
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Date:
+      - Wed, 16 Feb 2022 13:52:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - BOXAPIINGRESS=4639ea660b855ee4394598908891b0dc; Path=/v2(/|$)(.*); Secure;
+        HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"description":"Not enough segments","error":"Invalid token","status_code":401}
+
+        '
+  recorded_at: Wed, 16 Feb 2022 13:52:14 GMT
+recorded_with: VCR 6.0.0

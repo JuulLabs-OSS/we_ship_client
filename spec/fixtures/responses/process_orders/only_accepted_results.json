@@ -1,0 +1,16 @@
+{
+  "response": {
+    "ordersHeldInGateway": [
+      {
+        "description": "Order TESTR00000001 accepted",
+        "orderId": "12343459",
+        "referenceNo": "TESTR00000001",
+        "status": "New",
+        "type": "Sales Order"
+      }
+    ],
+    "rejectedorders": {
+      "order": []
+    }
+  }
+}

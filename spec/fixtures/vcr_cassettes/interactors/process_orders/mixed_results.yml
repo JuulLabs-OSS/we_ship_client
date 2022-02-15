@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<WE_SHIP_BASE_URL>/process_orders"
+    body:
+      encoding: UTF-8
+      string: '{"formatVersion":"123","clientCode":"<WE_SHIP_CUSTOMER_CODE>","allowDuplicates":"Y","order":[{"orderNo":"TESTR00000001","orderDate":"2021-04-01","shipMethod":"","fulfillmentLocation":"MOW","shipToAddress":{"name":"John
+        Doe","address1":"1 Test Rd","city":"Keller","state":"TX","postalCode":"76244","country":"US","homePhone":"+15553334444"},"orderItems":{"orderItem":[{"productName":"US
+        - J1 Devices","productSKU":"J1D1846","productType":"TOBG","quantity":1,"weight":"0.08"}]}},{"orderNo":"TESTR00000002","orderDate":"2021-04-01","shipMethod":"","fulfillmentLocation":"MOW","shipToAddress":{"name":"John
+        Doe","address1":"1 Test Rd","city":"Keller","state":"TX","postalCode":"76244","country":"US","homePhone":"+15553334444"},"orderItems":{"orderItem":[{"productName":"US
+        - J1 Devices","productSKU":"J1D1846","productType":"TOBG","quantity":1,"weight":"0.081"}]}}]}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDUxMDU5MjQsImlhdCI6MTY0NTAxOTUyNCwibmJmIjoxNjQ1MDE5NTI0LCJpZGVudGl0eSI6IkpVVUxfQVBJIiwiZ3JvdXBzIjpbIkpVVUwiXX0.AdeyDOzAeh_BeKVI3V38rFXRHwPkj41aIsTbpVyA5V0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 16 Feb 2022 13:52:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '379'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - BOXAPIINGRESS=4639ea660b855ee4394598908891b0dc; Path=/v2(/|$)(.*); Secure;
+        HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"response":{"ordersHeldInGateway":[{"description":"Order TESTR00000001
+        accepted","orderId":"14878618","referenceNo":"TESTR00000001","status":"New","type":"Sales
+        Order"}],"rejectedorders":{"@count":"1","order":[{"description":"Order No
+        TESTR00000002 is rejected ''0.081'' is not a valid value of union type ''OptionalDecimal9-2''.","referenceNo":"TESTR00000002","status":"Fail"}]}}}
+
+        '
+  recorded_at: Wed, 16 Feb 2022 13:52:05 GMT
+recorded_with: VCR 6.0.0

@@ -1,0 +1,23 @@
+{
+  "response": {
+    "ordersHeldInGateway": [
+      {
+        "description": "Order TESTR00000001 accepted",
+        "orderId": "12343458",
+        "referenceNo": "TESTR00000001",
+        "status": "New",
+        "type": "Sales Order"
+      }
+    ],
+    "rejectedorders": {
+      "@count": "1",
+      "order": [
+        {
+          "description": "Order No TESTR00000002 is rejected ''0.081'' is not a valid value of union type ''OptionalDecimal9-2''.",
+          "referenceNo": "TESTR00000002",
+          "status": "Fail"
+        }
+      ]
+    }
+  }
+}

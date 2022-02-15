@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require 'we_ship_client/entities/base'
+require 'we_ship_client/entities/address'
+require 'we_ship_client/entities/order_item'
+require 'we_ship_client/entities/order_items'
+require 'we_ship_client/entities/order'
+require 'we_ship_client/entities/process_orders_request'
+require 'we_ship_client/entities/track_request'
+require 'we_ship_client/entities/responses/order_accepted'
+require 'we_ship_client/entities/responses/order_rejected'
+require 'we_ship_client/entities/responses/process_orders'
+require 'we_ship_client/entities/responses/proof_of_delivery'
+require 'we_ship_client/entities/responses/rejected_orders'
+require 'we_ship_client/entities/responses/track_order'
+require 'we_ship_client/entities/responses/track_response'
+require 'we_ship_client/entities/responses/tracking_item'
