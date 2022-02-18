@@ -34,6 +34,7 @@ module WeShipClient
           data: request.to_hash,
           headers: { Authorization: "JWT #{auth_token}" }
         )
+        handle_exception(response) unless response.status == 200
         json_response = JSON.parse(response.body, symbolize_names: true)
         handle_exception(response) if json_response[:results].nil?
         filter_results(json_response)
@@ -49,12 +50,13 @@ module WeShipClient
           "[WeShipClient::Interactors::GetTracking] [EXCEPTION] #{response}"
         )
 
-        case response.status
-        when 401
-          raise WeShipClient::Exceptions::AuthenticationError, response.body
-        else
-          raise WeShipClient::Exceptions::ServerError, response.body
-        end
+        http_errors = {
+          401 => WeShipClient::Exceptions::AuthenticationError
+        }
+
+        raise http_errors[response.status], response.body if http_errors.key?(response.status)
+
+        raise WeShipClient::Exceptions::ServerError, response.body
       end
 
       def response_class

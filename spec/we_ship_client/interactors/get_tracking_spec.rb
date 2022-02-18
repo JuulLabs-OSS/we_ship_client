@@ -124,6 +124,30 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
 
         it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
       end
+
+      context 'when response is 503 HTTP ' do
+        let(:cassette_name) { nil }
+        let(:response) { '<html> <head><title>503 Service Temporarily Unavailable</title></head> <body> <center><h1>503 Service Temporarily Unavailable</h1></center> <hr><center>nginx</center> </body> </html>' }
+        let(:status) { 503 }
+
+        before do
+          stub_request(:post, 'https://api.mapss.stage.aim.hosting/v2/track').to_return(status: status, body: response)
+        end
+
+        it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
+      end
+
+      context 'when response is 502 HTTP ' do
+        let(:cassette_name) { nil }
+        let(:response) { '<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx</center> </body> </html>' }
+        let(:status) { 502 }
+
+        before do
+          stub_request(:post, 'https://api.mapss.stage.aim.hosting/v2/track').to_return(status: status, body: response)
+        end
+
+        it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
+      end
     end
   end
 end
