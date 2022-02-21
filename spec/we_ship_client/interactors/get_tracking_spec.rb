@@ -108,11 +108,15 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
     end
 
     context 'when API call is not successful' do
+      subject do
+        -> { described_class.new(auth_token: auth_token, track_request: request).call }
+      end
+
       context 'when JWT token is invalid' do
         let(:auth_token) { 'invalid-jwt' }
         let(:cassette_name) { 'interactors/get_tracking/invalid_jwt' }
 
-        it { expect { subject }.to raise_error(WeShipClient::Exceptions::AuthenticationError) }
+        it { is_expected.to raise_error(WeShipClient::Exceptions::AuthenticationError) }
       end
 
       context 'when there is a different error' do
@@ -122,7 +126,7 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
           WeShipClient::Entities::TrackRequest.new(order_id: ['123789'], customer_code: customer_code)
         end
 
-        it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
+        it { is_expected.to raise_error(WeShipClient::Exceptions::ServerError) }
       end
 
       context 'when response is 503 HTTP ' do
@@ -134,7 +138,7 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
           stub_request(:post, 'https://api.mapss.stage.aim.hosting/v2/track').to_return(status: status, body: response)
         end
 
-        it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
+        it { is_expected.to raise_error(WeShipClient::Exceptions::ServerError) }
       end
 
       context 'when response is 502 HTTP ' do
@@ -146,7 +150,7 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
           stub_request(:post, 'https://api.mapss.stage.aim.hosting/v2/track').to_return(status: status, body: response)
         end
 
-        it { expect { subject }.to raise_error(WeShipClient::Exceptions::ServerError) }
+        it { is_expected.to raise_error(WeShipClient::Exceptions::ServerError) }
       end
     end
   end
