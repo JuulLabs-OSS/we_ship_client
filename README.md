@@ -1,5 +1,7 @@
 # WeShipClient
 
+[![Specs](https://github.com/JuulLabs-OSS/we_ship_client/actions/workflows/specs.yml/badge.svg)](https://github.com/JuulLabs-OSS/we_ship_client/actions/workflows/specs.yml)
+
 This is a Ruby client for the We Ship Express V2 API provided by https://www.weshipexpress.com/
 
 ## Installation
