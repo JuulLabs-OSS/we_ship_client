@@ -13,6 +13,13 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  WE_SHIP_BASE_URL: 'https://api.mapss.stage.aim.hosting/v2'
+  WE_SHIP_FORMAT_VERSION: '123'
+  WE_SHIP_CUSTOMER_CODE: 'CUSTOMER_CODE'
+  WE_SHIP_ALLOW_DUPLICATES: 'Y'
+  WE_SHIP_DEFAULT_PRODUCT_TYPE: 'XXX'
+
 jobs:
   test:
 
