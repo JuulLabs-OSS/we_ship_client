@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activesupport'
-  spec.add_dependency 'dry-struct', '>= 0.6', '< 1.5'
+  spec.add_dependency 'dry-struct', '~> 1.4'
   spec.add_dependency 'dry-types'
   spec.add_dependency 'loogi_http', '~> 1.0'
 
