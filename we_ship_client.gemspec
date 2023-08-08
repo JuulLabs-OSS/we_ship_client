@@ -1,7 +1,7 @@
 require_relative 'lib/we_ship_client/version'
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = '>= 2.6'
+  spec.required_ruby_version = '>= 3.0'
   spec.name          = 'we_ship_client'
   spec.version       = WeShipClient::VERSION
   spec.authors       = ['Juul Labs, Inc.']

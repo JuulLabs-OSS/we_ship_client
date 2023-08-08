@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    we_ship_client (1.0.0)
+    we_ship_client (1.1.0)
       activesupport
       dry-struct (~> 1.4)
       dry-types
