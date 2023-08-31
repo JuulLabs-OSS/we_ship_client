@@ -10,6 +10,6 @@ require 'we_ship_client/transforms/tracking_item'
 
 module WeShipClient
   def self.logger
-    defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+    @logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
   end
 end
