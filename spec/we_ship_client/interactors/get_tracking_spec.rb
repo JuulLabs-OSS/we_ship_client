@@ -116,7 +116,12 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
         let(:auth_token) { 'invalid-jwt' }
         let(:cassette_name) { 'interactors/get_tracking/invalid_jwt' }
 
-        it { is_expected.to raise_error(WeShipClient::Exceptions::AuthenticationError) }
+        it 'logs error' do
+          expect(WeShipClient.logger).to receive(:info)
+            .with(/EXCEPTION/).and_call_original
+
+          expect { subject.call }.to raise_error(WeShipClient::Exceptions::AuthenticationError)
+        end
       end
 
       context 'when there is a different error' do
@@ -126,7 +131,12 @@ RSpec.describe WeShipClient::Interactors::GetTracking do
           WeShipClient::Entities::TrackRequest.new(order_id: ['123789'], customer_code: customer_code)
         end
 
-        it { is_expected.to raise_error(WeShipClient::Exceptions::ServerError) }
+        it 'logs and raises error' do
+          expect(WeShipClient.logger).to receive(:info)
+            .with(/EXCEPTION/).and_call_original
+
+          expect { subject.call }.to raise_error(WeShipClient::Exceptions::ServerError)
+        end
       end
 
       context 'when response is 503 HTTP ' do
