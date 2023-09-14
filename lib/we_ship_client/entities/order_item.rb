@@ -8,7 +8,7 @@ module WeShipClient
     class OrderItem < Base
       attribute :productName, Types::Strict::String
       attribute :productSKU, Types::Strict::String
-      attribute :productType, Types::Strict::String.default(ENV['WE_SHIP_DEFAULT_PRODUCT_TYPE'])
+      attribute :productType, Types::Strict::String.default { ENV['WE_SHIP_DEFAULT_PRODUCT_TYPE'] }
       attribute :quantity, Types::Strict::Integer
       attribute :weight, Types::Strict::String
     end

@@ -15,9 +15,9 @@ module WeShipClient
       #       :description=>"Invalid content was found starting with element 'clientCode'. One of '{order}' is expected.",
       #       :status=>"Fail"
       #  }}}
-      attribute :formatVersion, Types::Strict::String.default(ENV['WE_SHIP_FORMAT_VERSION'])
-      attribute :clientCode, Types::Strict::String.default(ENV['WE_SHIP_CUSTOMER_CODE'])
-      attribute :allowDuplicates, Types::Strict::String.default(ENV['WE_SHIP_ALLOW_DUPLICATES'])
+      attribute :formatVersion, Types::Strict::String.default { ENV['WE_SHIP_FORMAT_VERSION'] }
+      attribute :clientCode, Types::Strict::String.default { ENV['WE_SHIP_CUSTOMER_CODE'] }
+      attribute :allowDuplicates, Types::Strict::String.default { ENV['WE_SHIP_ALLOW_DUPLICATES'] }
       attribute :order, Types::Strict::Array.of(Order)
     end
   end
