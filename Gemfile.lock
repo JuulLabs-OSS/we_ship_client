@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    we_ship_client (1.1.0)
+    we_ship_client (1.1.1)
       activesupport
       dry-struct (~> 1.4)
       dry-types
@@ -94,6 +94,7 @@ GEM
     zeitwerk (2.6.9)
 
 PLATFORMS
+  arm64-darwin-21
   arm64-darwin-22
   x86_64-darwin-20
   x86_64-darwin-21
