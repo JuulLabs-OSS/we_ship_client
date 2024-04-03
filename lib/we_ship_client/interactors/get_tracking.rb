@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_support'
+require 'active_support/core_ext' # required for `present?`
 require 'we_ship_client/client'
 require 'we_ship_client/exceptions'
 require 'we_ship_client/entities'
