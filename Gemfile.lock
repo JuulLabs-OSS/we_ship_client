@@ -10,21 +10,29 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.6)
+    activesupport (7.1.3.2)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    concurrent-ruby (1.1.9)
+    base64 (0.2.0)
+    bigdecimal (3.1.7)
+    concurrent-ruby (1.2.3)
+    connection_pool (2.4.1)
     crack (0.4.5)
       rexml
-    diff-lcs (1.5.0)
+    diff-lcs (1.5.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
+    drb (2.2.1)
     dry-core (1.0.0)
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
@@ -54,34 +62,35 @@ GEM
     hashdiff (1.0.1)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
-    i18n (1.10.0)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     loogi_http (1.0.0)
       faraday (~> 1.0.1)
       faraday-cookie_jar (~> 0.0.6)
       faraday_middleware (~> 1.0.0)
-    minitest (5.15.0)
+    minitest (5.22.3)
     multipart-post (2.1.1)
+    mutex_m (0.2.0)
     public_suffix (4.0.6)
     rake (12.3.3)
     rexml (3.2.5)
-    rspec (3.10.0)
-      rspec-core (~> 3.10.0)
-      rspec-expectations (~> 3.10.0)
-      rspec-mocks (~> 3.10.0)
-    rspec-core (3.10.1)
-      rspec-support (~> 3.10.0)
-    rspec-expectations (3.10.2)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.10.0)
-    rspec-mocks (3.10.2)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.10.0)
-    rspec-support (3.10.3)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
     stub_env (1.0.4)
       rspec (>= 2.0, < 4.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
@@ -91,11 +100,12 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    zeitwerk (2.6.9)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-22
+  arm64-darwin-23
   x86_64-darwin-20
   x86_64-darwin-21
   x86_64-linux
