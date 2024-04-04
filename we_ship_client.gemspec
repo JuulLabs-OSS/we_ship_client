@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport'
   spec.add_dependency 'dry-struct', '~> 1.4'
   spec.add_dependency 'dry-types'
-  spec.add_dependency 'loogi_http', '~> 1.0'
+  spec.add_dependency 'loogi_http', '~> 2.0'
 
   spec.add_development_dependency 'stub_env'
   spec.add_development_dependency 'vcr'
